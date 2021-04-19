@@ -4,7 +4,7 @@
 		{
 			"path": "pages/tabbar/tabbar-1/tabbar-1",
 			"style": {
-				"navigationBarTitleText": "该投就投",
+				"navigationBarTitleText": "燕赵大地",
 				"navigationBarBackgroundColor": "#00BFFF",
 				"navigationBarTextStyle":"white"
 			}
