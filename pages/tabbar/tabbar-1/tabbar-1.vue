@@ -22,24 +22,23 @@
 			
 			<view class="vid">
 				  <view v-for="v in vid.data">
-					<video :src="v.Address" controls="true" show-fullscreen-btn="true" :danmu-list="danmuList" enable-danmu danmu-btn></video>
-					<view>{{v.Title}}</view>
+					<video :src="v.Address"  controls="true"  :danmu-list="v.Comments" enable-danmu danmu-btn></video>
+					<view>{{v.Title}} </view>
+					<view>{{v.ID}}</view>
+					<!-- #ifndef MP-ALIPAY -->
+					<view class="uni-list uni-common-mt">
+						<view class="uni-list-cell">
+							<view class="uni-list-cell-db">
+							  <input v-model="danmuValue" class="uni-input" type="text" placeholder="输入弹幕" />
+							</view>
+						</view>
+					</view>
+					<view class="uni-btn-v">
+						<button @click="sendDanmu" class="page-body-button">发送</button>
+					</view>
+					<!-- #endif -->
 				  </view>
-				  <!-- #ifndef MP-ALIPAY -->
-				  <view class="uni-list uni-common-mt">
-					  <view class="uni-list-cell">
-						  <view>
-							  <view class="uni-label">弹幕内容</view>
-						  </view>
-						  <view class="uni-list-cell-db">
-							  <input v-model="danmuValue" class="uni-input" type="text" placeholder="在此处输入弹幕内容" />
-						  </view>
-					  </view>
-				  </view>
-				  <view class="uni-btn-v">
-					  <button @click="sendDanmu" class="page-body-button">发送弹幕</button>
-				  </view>
-				  <!-- #endif -->
+				 
 			</view>
 			
 	</view>
@@ -53,18 +52,7 @@ export default {
 				cat:[],
 				vid:[],
 				src: '',
-				danmuList: [{
-						text: '第 1s 出现的弹幕',
-						color: '#ff0000',
-						time: 1
-					},
-					{
-						text: '第 3s 出现的弹幕',
-						color: '#ff00ff',
-						time: 3
-					}
-				],
-				danmuValue: ''
+				danmuValue: '123'
 	        }
 	    },
 		onLoad() {
@@ -79,10 +67,24 @@ export default {
 					this.cat = res
 				})
 				this.$api.vids({},res=>{
-					console.log(res);
 					this.vid = res
+					res.data.forEach((item,key) =>{
+						item.Comments.forEach((v,k) =>{
+							v['text'] = v.Says //弹幕内容
+							v['time'] = v.Second //弹幕出现的秒数
+						})
+					})
 				})
 	        },
+			
+			sendDanmu: function() {
+				console.log(this.danmuValue);
+				this.videoContext.sendDanmu({
+					text: this.danmuValue,
+					color: this.getRandomColor()
+				});
+				// this.danmuValue = '';
+			},
 	    }
 };
 </script>
