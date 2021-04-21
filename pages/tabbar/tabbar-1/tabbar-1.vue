@@ -21,10 +21,10 @@
 			</view>
 			
 			<view class="vid">
-				  <view v-for="v in vid.data">
-					<video :src="v.Address"  controls="true"  :danmu-list="v.Comments" enable-danmu danmu-btn></video>
-					<view>{{v.Title}} </view>
-					<view>{{v.ID}}</view>
+				  <view v-for="v in vid.data" class="videos">
+					  <view>{{v.Title}} </view>
+					<video :id="'abc'+v.ID" :data-ss="v.ID" :src="v.Address"  controls="true" @timeupdate="videoTimeUpdateEvent" :danmu-list="v.Comments" enable-danmu danmu-btn></video>
+					
 					<!-- #ifndef MP-ALIPAY -->
 					<view class="uni-list uni-common-mt">
 						<view class="uni-list-cell">
@@ -34,7 +34,7 @@
 						</view>
 					</view>
 					<view class="uni-btn-v">
-						<button @click="sendDanmu" class="page-body-button">发送</button>
+						<button @click="sendDanmu" :data-id="v.ID" class="page-body-button send">发送</button>
 					</view>
 					<!-- #endif -->
 				  </view>
@@ -51,8 +51,9 @@ export default {
 	            db: [],
 				cat:[],
 				vid:[],
+				curtime:[],
 				src: '',
-				danmuValue: '123'
+				danmuValue: ''
 	        }
 	    },
 		onLoad() {
@@ -69,21 +70,50 @@ export default {
 				this.$api.vids({},res=>{
 					this.vid = res
 					res.data.forEach((item,key) =>{
+						//弹幕时间
+						this.curtime[item.ID] = key
+						
 						item.Comments.forEach((v,k) =>{
 							v['text'] = v.Says //弹幕内容
 							v['time'] = v.Second //弹幕出现的秒数
 						})
 					})
+					console.log(this.curtime);
 				})
 	        },
 			
-			sendDanmu: function() {
-				console.log(this.danmuValue);
+			sendDanmu: function(e) {
+				let oid = e.currentTarget.dataset.id
+				this.videoContext = uni.createVideoContext("abc"+oid)
 				this.videoContext.sendDanmu({
 					text: this.danmuValue,
-					color: this.getRandomColor()
+					color: "#FFF",
 				});
-				// this.danmuValue = '';
+				//1,获取当前播放的描述
+				let second = this.curtime[oid]
+				console.log(second)
+				//2,数据发送给后台
+				this.$api.sendDm({
+					'Second': parseInt(second),
+					'Says': this.danmuValue,
+					'VideoId':oid
+				},res =>{
+					if(res.code == 0){uni.showModal({
+						title: '成功',
+					})
+					}else{
+						uni.showModal({
+							title:res.msg
+						})
+					}
+				})
+				
+				this.danmuValue = '';
+				
+			},
+			videoTimeUpdateEvent(e) { // 播放进度改变
+				//记录当前视频的当前播放秒数,提供给发送弹幕后台使用
+				this.curtime[e.currentTarget.dataset.ss] = e.detail.currentTime
 			},
 	    }
 };
@@ -96,6 +126,13 @@ export default {
 		flex-direction:column ;
 		border: 5px solid deepskyblue;
 		text-align: center;
+	}
+	.videos{
+		padding-bottom: 20rpx;
+	}
+	.send{
+		width: 70px;
+		height: 40px;
 	}
 	uni-video {
 	    width: 362px;

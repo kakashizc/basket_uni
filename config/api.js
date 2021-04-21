@@ -11,6 +11,8 @@ export const cats = (data,callback) => urlPost(apiBaseUrl + 'v2/cat', data,callb
 
 export const vids = (data,callback) => urlPost(apiBaseUrl + 'v2/vid', data,callback);
 
+export const sendDm = (data,callback) => urlPost(apiBaseUrl + 'v2/danm', data,callback);
+
 const urlGet =  (url,data,callback) => {
 	uni.showLoading({
 		title: '加载中'
