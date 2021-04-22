@@ -1,0 +1,1 @@
+<view class="content"><view data-event-opts="{{[['tap',[['getUserInfo',['$event']]]]]}}" bindtap="__e"><button style="margin-top:300px;">点击授权</button></view></view>

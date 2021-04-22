@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		页面 - 4
+		开发中...
 	</view>
 </template>
 

@@ -38,7 +38,8 @@
 					</view>
 					<!-- #endif -->
 				  </view>
-				 
+				 <!-- wx52a8b1ff0844198a
+				 1fd89b44c3c553da50bfd968262340e5 -->
 			</view>
 			
 	</view>
@@ -132,7 +133,9 @@ export default {
 	}
 	.send{
 		width: 70px;
-		height: 40px;
+		height: 30px;
+		font-size: 10px;
+		background-color:lightblue
 	}
 	uni-video {
 	    width: 362px;

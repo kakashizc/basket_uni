@@ -1,0 +1,1 @@
+<view class="content"><view data-event-opts="{{[['tap',[['getUserInfo',['$event']]]]]}}" bindtap="__e">123123</view></view>
