@@ -159,9 +159,17 @@ var _default =
       uni.getUserProfile({
         desc: '123',
         success: function success(res) {
+          console.log(res);
           if (res.errMsg == "getUserProfile:ok") {//授权成功
             //调用后台接口,发送code
-
+            _this.$api.auth({
+              "avatarUrl": res.userInfo.avatarUrl,
+              "nickName": res.userInfo.nickName,
+              "gender": res.userInfo.gender,
+              "code": _this.code },
+            function (res) {
+              console.log(res);
+            });
             //跳转到我的页面
             uni.navigateBack({
               url: './tabbar-5' });

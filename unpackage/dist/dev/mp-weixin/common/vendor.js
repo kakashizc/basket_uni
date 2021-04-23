@@ -8025,7 +8025,7 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
 
 
 var methodsToken = [
@@ -8039,6 +8039,7 @@ var cats = function cats(data, callback) {return urlPost(_config.apiBaseUrl + 'v
 var vids = function vids(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/vid', data, callback);};exports.vids = vids;
 
 var sendDm = function sendDm(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/danm', data, callback);};exports.sendDm = sendDm;
+var auth = function auth(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/wauth', data, callback);};exports.auth = auth;
 
 var urlGet = function urlGet(url, data, callback) {
   uni.showLoading({
