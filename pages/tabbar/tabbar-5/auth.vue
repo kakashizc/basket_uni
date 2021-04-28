@@ -10,7 +10,7 @@
 	export default {
 		data() {
 		    return {
-		        userinfo: '',
+		        userinfo: {},
 				code:'',
 		    }
 		},
@@ -35,15 +35,23 @@
 							this.$api.auth({
 								"avatarUrl":res.userInfo.avatarUrl,
 								"nickName":res.userInfo.nickName,
-								"gender":res.userInfo.gender,
+								"gender":res.userInfo.nickName,
 								"code":this.code,
-							},res=>{
-								console.log(res);
+							},ret=>{
+								console.log(ret);
+								if(ret.code == 0){
+									console.log(res.userInfo.avatarUrl);
+									this.userinfo.name = res.userInfo.nickName,
+									this.userinfo.avatar = res.userInfo.avatarUrl,
+									uni.setStorageSync("token",ret.token)
+									console.log(this.userinfo);
+									uni.setStorageSync("userinfo",this.userinfo)
+								}
+								uni.navigateBack({
+									url:'./tabbar-5'
+								})
 							})
-							//跳转到我的页面
-							uni.navigateBack({
-								url:'./tabbar-5'
-							})
+							
 						}else{
 							alert("授权失败")
 						}

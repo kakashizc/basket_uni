@@ -13,6 +13,7 @@ export const vids = (data,callback) => urlPost(apiBaseUrl + 'v2/vid', data,callb
 
 export const sendDm = (data,callback) => urlPost(apiBaseUrl + 'v2/danm', data,callback);
 export const auth = (data,callback) => urlPost(apiBaseUrl + 'v2/wauth', data,callback);
+export const upv = (data,callback) => urlPost(apiBaseUrl + 'v3/upvideo', data,callback);
 
 const urlGet =  (url,data,callback) => {
 	uni.showLoading({

@@ -1,7 +1,16 @@
 <template>
 	<view class="content">
-		<view @click="getUserInfo">
-			123123
+		<view class="cat">
+			
+			<view>
+				<image class="userinfo-avatar" :src="userinfo.avatar" mode=""></image>
+			</view>
+			<view>
+				{{userinfo.name}}
+			</view>
+			<view>
+				<text style="color: #F0AD4E"> -我发布的视频- </text>
+			</view>
 		</view>
 	</view>
 </template>
@@ -10,30 +19,43 @@
 	export default {
 		data() {
 		    return {
-		        userinfo: '',
+		        userinfo: {
+					name:"请先授权"
+				},
 		    }
 		},
-		onLoad() {
-			let userinfo = uni.getStorageSync("token")
-			if(!userinfo){
+		onShow() {
+			let token = uni.getStorageSync("token")
+			if(!token){
 				uni.navigateTo({
 					url:'auth'
 				})
+			}else{
+				//渲染页面
+				this.userinfo = uni.getStorageSync("userinfo")
+				console.log(this.userinfo);
 			}
 		},
 		methods: {
-			//回调函数
-			getUserInfo(){
-				uni.getUserProfile({
-					desc:'123',
-					success:function(res){
-						console.log(res);
-					}
-				})
-			}
+			
 		}
 	}
 </script>
 
 <style>
+	.cat{
+		 display: flex;
+		 flex-direction: column;
+		 align-items: center;
+		 color: #aaa;
+	}
+	.cat view{
+		margin: 10rpx;
+	}
+	.userinfo-avatar{
+	  overflow: hidden;
+	  width: 128rpx;
+	  height: 128rpx;
+	  border-radius: 50%;
+	}
 </style>

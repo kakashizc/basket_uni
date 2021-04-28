@@ -1,1 +1,1 @@
-<view class="content"><view data-event-opts="{{[['tap',[['getUserInfo',['$event']]]]]}}" bindtap="__e">123123</view></view>
+<view class="content"><view class="cat"><view><image class="userinfo-avatar" src="{{userinfo.avatar}}" mode></image></view><view>{{''+userinfo.name+''}}</view><view><text style="color:#F0AD4E;">-我发布的视频-</text></view></view></view>

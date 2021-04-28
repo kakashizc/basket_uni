@@ -4,4 +4,15 @@
 	height: 400rpx;
 	margin-top: 200rpx;
 }
+ uni-video {
+	margin-top: 20rpx;
+	margin-left: 5%;
+}
+.close-img {
+	position: absolute;
+	height: 36rpx !important;
+	width: 36rpx !important;
+	top: -18rpx;
+	/* right: -18rpx; */
+}
 
