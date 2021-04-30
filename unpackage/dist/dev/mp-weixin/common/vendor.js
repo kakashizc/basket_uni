@@ -8025,7 +8025,7 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.myvideos = exports.sumb = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
 
 
 var methodsToken = [
@@ -8033,14 +8033,13 @@ var methodsToken = [
 
 
 var banners = function banners(data, callback) {return urlGet(_config.apiBaseUrl + 'v2/banner', data, callback);};exports.banners = banners;
-
 var cats = function cats(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/cat', data, callback);};exports.cats = cats;
-
 var vids = function vids(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/vid', data, callback);};exports.vids = vids;
-
 var sendDm = function sendDm(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/danm', data, callback);};exports.sendDm = sendDm;
 var auth = function auth(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/wauth', data, callback);};exports.auth = auth;
 var upv = function upv(data, callback) {return urlPost(_config.apiBaseUrl + 'v3/upvideo', data, callback);};exports.upv = upv;
+var sumb = function sumb(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/sumb', data, callback);};exports.sumb = sumb;
+var myvideos = function myvideos(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myvideos', data, callback);};exports.myvideos = myvideos;
 
 var urlGet = function urlGet(url, data, callback) {
   uni.showLoading({
@@ -8071,7 +8070,36 @@ var urlGet = function urlGet(url, data, callback) {
     } });
 
 };
+var urlPostToken = function urlPostToken(url, data, callback) {
+  uni.showLoading({
+    title: '加载中' });
 
+  uni.request({
+    url: url,
+    header: {
+      'content-type': 'application/x-www-form-urlencoded;charset=UTF-8', //自定义请求头信息
+      'Authorization': uni.getStorageSync('token') },
+
+    data: data,
+    method: 'POST',
+    success: function success(response) {
+      uni.hideLoading();
+      callback(response.data);
+    },
+    fail: function fail(error) {
+      console.log(error);
+      uni.hideLoading();
+      if (error && error.response) {
+        showError(error.response);
+      }
+    },
+    complete: function complete() {
+      setTimeout(function () {
+        uni.hideLoading();
+      }, 250);
+    } });
+
+};
 var urlPost = function urlPost(url, data, callback) {
   uni.showLoading({
     title: '加载中' });

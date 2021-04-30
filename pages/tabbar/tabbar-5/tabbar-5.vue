@@ -9,7 +9,16 @@
 				{{userinfo.name}}
 			</view>
 			<view>
-				<text style="color: #F0AD4E"> -我发布的视频- </text>
+				<button @click="MyVideo()" class="vids" > -我的视频- </button>
+			</view>
+			<view>
+				<button @click="MyTeam()" class="vids" > -我的球队- </button>
+			</view>
+			<view>
+				<button @click="MyCourt()" class="vids" > -我的球场- </button>
+			</view>
+			<view>
+				<button @click="TeamList()" class="vids" > -球队一览- </button>
 			</view>
 		</view>
 	</view>
@@ -37,12 +46,35 @@
 			}
 		},
 		methods: {
-			
+			MyVideo(){
+				uni.navigateTo({
+					url:"./myvideos/myvideos"
+				})
+			},
+			MyTeam(){
+				uni.navigateTo({
+					url:"./myteam/myteam"
+				})
+			},
+			MyCourt(){
+				uni.navigateTo({
+					url:"./mycourt/mycourt"
+				})
+			},
+			TeamList(){
+				uni.navigateTo({
+					url:"./teamlist/teamlist"
+				})
+			},
 		}
 	}
 </script>
 
 <style>
+	.vids{
+		background-color: deepskyblue;
+		color: #333333;
+	}
 	.cat{
 		 display: flex;
 		 flex-direction: column;

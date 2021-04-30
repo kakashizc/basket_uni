@@ -32,7 +32,6 @@
 				src: '',
 				showVideo: false,
 				addVideo: true,
-
 			}
 		},
 		onLoad() {
@@ -59,12 +58,36 @@
 					})
 					return
 				}
-				console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
-				
-				uni.showModal({
-					content: '表单数据内容：' + JSON.stringify(formdata),
-					showCancel: false
-				});
+				console.log('form发生了submit事件，携带数据为：' + (e.detail.value))
+				//调用接口 上传到服务器
+				self.$api.sumb({
+					"title": e.detail.value.title,
+					"address": e.detail.value.videopath,
+				}, ret => {
+					console.log(ret);
+					if (ret.code == 0) {
+						uni.showModal({
+							title: "提交成功",
+							content: "提交成功",
+							success: function(re) {
+								if (re.confirm) {
+									uni.navigateBack({
+										delta: 2
+									})
+								} else if (re.cancel) {
+									console.log('用户点击取消');
+								}
+							}
+						})
+
+					} else {
+						uni.showModal({
+							title: "提交失败",
+							content: "提交失败"
+						})
+					}
+
+				})
 			},
 			//点击上传视频
 			test: function() {
@@ -73,13 +96,13 @@
 					count: 1,
 					sourceType: ['camera', 'album'],
 					success: function(res) {
-						console.log("edu.zhoujiasong.top/v2/upvideo");
+						console.log("edu.zhoujiasong.top:8080/v3/upvideo");
 						console.log("选择视频成功", res)
 						self.showVideo = true
 						self.addVideo = false
 						self.src = res.tempFilePath;
 						uni.uploadFile({
-							url: "http://edu.zhoujiasong.top/v2/upvideo", //接口地址
+							url: "http://edu.zhoujiasong.top:8080/v3/upvideo", //接口地址
 							filePath: res.tempFilePath,
 							name: 'files',
 							// formData: {
@@ -92,9 +115,18 @@
 								console.log('1张', uploadFileRes);
 								let bold = JSON.parse(uploadFileRes.data)
 								console.log(bold)
-								console.log(bold.path)
-								self.returnImage = bold.path
-								console.log("this.returnImage", self.returnImage)
+								if (bold.code != 0) {
+									wx.showModal({
+										content: bold.msg
+									})
+									return
+								}
+
+								self.returnImage = bold.data.path
+								wx.showModal({
+									title: "ok",
+									content: bold.msg
+								})
 							},
 						});
 					}

@@ -8,7 +8,11 @@
     "pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release",
     "pages/tabbar-3-detial/tabbar-3-video/tabbar-3-video",
     "pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa",
-    "pages/tabbar/tabbar-5/auth"
+    "pages/tabbar/tabbar-5/auth",
+    "pages/tabbar/tabbar-5/myvideos/myvideos",
+    "pages/tabbar/tabbar-5/myteam/myteam",
+    "pages/tabbar/tabbar-5/mycourt/mycourt",
+    "pages/tabbar/tabbar-5/teamlist/teamlist"
   ],
   "subPackages": [],
   "window": {

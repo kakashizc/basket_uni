@@ -7,8 +7,8 @@
           justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column ;
-          flex-direction: column ;
+  -webkit-flex-direction: column;
+          flex-direction: column;
   border: 5px solid deepskyblue;
   text-align: center;
 }
@@ -25,20 +25,29 @@ uni-video {
   width: 362px;
 }
 .cat {
-  height: 150px;
+  height: 120px;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row ;
-          flex-direction: row ;
+  -webkit-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
           justify-content: space-between;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
   text-align: center;
+  padding: 20rpx;
+}
+.cat image {
+  width: 60px;
+  height: 60px;
+}
+.cat .vit {
+  font-size: 15px;
+  color: #808080;
 }
 .content {
   text-align: center;
@@ -62,9 +71,9 @@ uni-video {
   background-color: #fff;
   white-space: nowrap;
   width: 100%;
-  display: -webkit-box!important;
-  display: -webkit-flex!important;
-  display: flex!important;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: flex !important;
   -webkit-box-pack: justify !important;
   -webkit-justify-content: space-between !important;
           justify-content: space-between !important;

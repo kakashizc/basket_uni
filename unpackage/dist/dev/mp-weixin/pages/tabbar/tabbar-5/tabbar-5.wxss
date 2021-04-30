@@ -1,4 +1,8 @@
 
+.vids{
+	background-color: deepskyblue;
+	color: #333333;
+}
 .cat{
 	 display: -webkit-box;
 	 display: -webkit-flex;

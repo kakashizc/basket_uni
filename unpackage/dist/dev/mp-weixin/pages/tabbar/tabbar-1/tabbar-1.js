@@ -184,6 +184,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -193,32 +194,62 @@ var _default =
       vid: [],
       curtime: [],
       src: '',
-      danmuValue: '' };
+      danmuValue: '',
+      page: 1,
+      num: 2 };
 
   },
   onLoad: function onLoad() {
     this.indexData();
   },
+  onReachBottom: function onReachBottom() {var _this = this; // 划到最底
+    this.page++;
+    this.$api.vids({
+      "page": this.page,
+      "num": this.num },
+    function (res) {
+      console.log(res.data);
+      if (res.data.length == 0) {
+        uni.showToast({
+          title: "已经到底啦!",
+          duration: 2000 });
+
+      }
+      _this.vid.data = _this.vid.data.concat(res.data); //合并数组
+      _this.vid.data.forEach(function (item, key) {
+        //弹幕时间
+        _this.curtime[item.ID] = key;
+        item.Comments.forEach(function (v, k) {
+          v['text'] = v.Says; //弹幕内容
+          v['time'] = v.Second; //弹幕出现的秒数
+        });
+      });
+    });
+  },
   methods: {
-    indexData: function indexData() {var _this = this;
+    indexData: function indexData() {var _this2 = this;
       this.$api.banners({}, function (res) {
-        _this.db = res;
+        _this2.db = res;
       });
-      this.$api.cats({ "shows": "1" }, function (res) {
-        _this.cat = res;
+      this.$api.cats({
+        "shows": "1" },
+      function (res) {
+        _this2.cat = res;
       });
-      this.$api.vids({}, function (res) {
-        _this.vid = res;
+      this.$api.vids({
+        "page": this.page,
+        "num": this.page },
+      function (res) {
+        _this2.vid = res;
         res.data.forEach(function (item, key) {
           //弹幕时间
-          _this.curtime[item.ID] = key;
-
+          _this2.curtime[item.ID] = key;
           item.Comments.forEach(function (v, k) {
             v['text'] = v.Says; //弹幕内容
             v['time'] = v.Second; //弹幕出现的秒数
           });
         });
-        console.log(_this.curtime);
+        console.log(_this2.curtime);
       });
     },
 
@@ -238,7 +269,8 @@ var _default =
         'Says': this.danmuValue,
         'VideoId': oid },
       function (res) {
-        if (res.code == 0) {uni.showModal({
+        if (res.code == 0) {
+          uni.showModal({
             title: '成功' });
 
         } else {

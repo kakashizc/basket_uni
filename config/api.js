@@ -6,14 +6,13 @@ const methodsToken = [
 ];
 
 export const banners = (data,callback) => urlGet(apiBaseUrl + 'v2/banner', data,callback);
-
 export const cats = (data,callback) => urlPost(apiBaseUrl + 'v2/cat', data,callback);
-
 export const vids = (data,callback) => urlPost(apiBaseUrl + 'v2/vid', data,callback);
-
 export const sendDm = (data,callback) => urlPost(apiBaseUrl + 'v2/danm', data,callback);
 export const auth = (data,callback) => urlPost(apiBaseUrl + 'v2/wauth', data,callback);
 export const upv = (data,callback) => urlPost(apiBaseUrl + 'v3/upvideo', data,callback);
+export const sumb = (data,callback) => urlPostToken(apiBaseUrl + 'v3/sumb', data,callback);
+export const myvideos = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myvideos', data,callback);
 
 const urlGet =  (url,data,callback) => {
 	uni.showLoading({
@@ -44,7 +43,36 @@ const urlGet =  (url,data,callback) => {
 		}
 	});
 }
-
+const urlPostToken =  (url,data,callback) => {
+	uni.showLoading({
+		title: '加载中'
+	});
+	uni.request({
+		url: url,
+		header: {
+			'content-type':'application/x-www-form-urlencoded;charset=UTF-8', //自定义请求头信息
+			'Authorization':uni.getStorageSync('token'),
+		},
+		data:data,
+		method: 'POST',
+		success: (response) => {
+			uni.hideLoading();
+			callback(response.data);
+		},
+		fail: (error) => {
+			console.log(error);
+			uni.hideLoading();
+			if (error && error.response) {
+				showError(error.response);
+			}
+		},
+		complete: () => {
+			setTimeout(function() {
+				uni.hideLoading();
+			}, 250);
+		}
+	});
+}
 const urlPost =  (url,data,callback) => {
 	uni.showLoading({
 		title: '加载中'

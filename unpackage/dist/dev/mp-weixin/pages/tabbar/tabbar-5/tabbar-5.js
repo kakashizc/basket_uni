@@ -147,6 +147,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -168,7 +177,27 @@ var _default =
       console.log(this.userinfo);
     }
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    MyVideo: function MyVideo() {
+      uni.navigateTo({
+        url: "./myvideos/myvideos" });
+
+    },
+    MyTeam: function MyTeam() {
+      uni.navigateTo({
+        url: "./myteam/myteam" });
+
+    },
+    MyCourt: function MyCourt() {
+      uni.navigateTo({
+        url: "./mycourt/mycourt" });
+
+    },
+    TeamList: function TeamList() {
+      uni.navigateTo({
+        url: "./teamlist/teamlist" });
+
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
