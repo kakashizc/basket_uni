@@ -13,6 +13,7 @@ export const auth = (data,callback) => urlPost(apiBaseUrl + 'v2/wauth', data,cal
 export const upv = (data,callback) => urlPost(apiBaseUrl + 'v3/upvideo', data,callback);
 export const sumb = (data,callback) => urlPostToken(apiBaseUrl + 'v3/sumb', data,callback);
 export const myvideos = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myvideos', data,callback);
+export const myteams = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myteams', data,callback);//我的队伍
 
 const urlGet =  (url,data,callback) => {
 	uni.showLoading({
