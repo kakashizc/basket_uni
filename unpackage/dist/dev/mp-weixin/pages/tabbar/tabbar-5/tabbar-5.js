@@ -156,6 +156,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -184,8 +190,29 @@ var _default =
 
     },
     MyTeam: function MyTeam() {
-      uni.navigateTo({
-        url: "./myteam/myteam" });
+      this.$api.myteams({}, function (ret) {
+        if (ret.code != 0) {
+          wx.showModal({
+            content: "尚未填写个人信息或加入球队",
+            showCancel: false,
+            success: function success(res) {
+              if (res.confirm) {
+                console.log('用户点击确定');
+                uni.navigateBack({});
+
+
+              } else if (res.cancel) {
+                console.log('用户点击取消');
+              }
+            } });
+
+
+        } else {
+          uni.navigateTo({
+            url: "./myteam/myteam" });
+
+        }
+      });
 
     },
     MyCourt: function MyCourt() {
@@ -196,6 +223,16 @@ var _default =
     TeamList: function TeamList() {
       uni.navigateTo({
         url: "./teamlist/teamlist" });
+
+    },
+    MyInfo: function MyInfo() {
+      uni.navigateTo({
+        url: "./myinfo/myinfo" });
+
+    },
+    Cteam: function Cteam() {
+      uni.navigateTo({
+        url: "./cteam/cteam" });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

@@ -20,6 +20,12 @@
 			<view>
 				<button @click="TeamList()" class="vids" > -球队一览- </button>
 			</view>
+			<view>
+				<button @click="MyInfo()" class="vids" > -我的信息- </button>
+			</view>
+			<view>
+				<button @click="Cteam()" class="vids" > -创建队伍- </button>
+			</view>
 		</view>
 	</view>
 </template>
@@ -52,9 +58,30 @@
 				})
 			},
 			MyTeam(){
-				uni.navigateTo({
-					url:"./myteam/myteam"
+				this.$api.myteams({},ret=>{
+					if (ret.code != 0){
+						wx.showModal({
+							content:"尚未填写个人信息或加入球队",
+							showCancel:false,
+							success: function (res) {
+							        if (res.confirm) {
+							            console.log('用户点击确定');
+										uni.navigateBack({
+										
+										})
+							        } else if (res.cancel) {
+							            console.log('用户点击取消');
+							        }
+							    }
+						})
+						
+					}else{
+						uni.navigateTo({
+							url:"./myteam/myteam"
+						})
+					}
 				})
+				
 			},
 			MyCourt(){
 				uni.navigateTo({
@@ -64,6 +91,16 @@
 			TeamList(){
 				uni.navigateTo({
 					url:"./teamlist/teamlist"
+				})
+			},
+			MyInfo(){
+				uni.navigateTo({
+					url:"./myinfo/myinfo"
+				})
+			},
+			Cteam(){
+				uni.navigateTo({
+					url:"./cteam/cteam"
 				})
 			},
 		}

@@ -8025,7 +8025,7 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.myteams = exports.myvideos = exports.sumb = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.emyinfo = exports.myinfo = exports.myteamers = exports.myteams = exports.myvideos = exports.sumb = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
 
 
 var methodsToken = [
@@ -8041,7 +8041,12 @@ var upv = function upv(data, callback) {return urlPost(_config.apiBaseUrl + 'v3/
 var sumb = function sumb(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/sumb', data, callback);};exports.sumb = sumb;
 var myvideos = function myvideos(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myvideos', data, callback);};exports.myvideos = myvideos;
 var myteams = function myteams(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myteams', data, callback);}; //我的队伍
-exports.myteams = myteams;
+exports.myteams = myteams;var myteamers = function myteamers(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myteamers', data, callback);}; //队伍下的所有队员信息
+exports.myteamers = myteamers;var myinfo = function myinfo(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myinfo', data, callback);}; //队伍下的所有队员信息
+exports.myinfo = myinfo;var emyinfo = function emyinfo(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/emyinfo', data, callback);}; //队伍下的所有队员信息
+exports.emyinfo = emyinfo;
+
+
 var urlGet = function urlGet(url, data, callback) {
   uni.showLoading({
     title: '加载中' });

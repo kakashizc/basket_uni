@@ -21,7 +21,7 @@
 					队伍名称: 
 				</view>
 				<view>
-					阿发!
+					{{userinfo.Team.Name}}
 				</view>
 			</view>
 			<view class="teamsons">
@@ -29,7 +29,8 @@
 					队伍图标:
 				</view>
 				<view>
-					<image src="../../../../static/img/tabbar/homeactive.png" mode="" style="width: 40rpx;height:40rpx"></image>
+					<!-- <image src="../../../../static/img/tabbar/homeactive.png" mode="" style="width: 40rpx;height:40rpx"></image> -->
+					<image :src="userinfo.Team.Image" mode="" style="width: 40rpx;height:40rpx"></image>
 				</view>
 			</view>
 			<view class="teamsons">
@@ -37,14 +38,14 @@
 					联系队伍:
 				</view>
 				<view>
-					 151333333333
+					 {{userinfo.Team.Mobile}}
 				</view>
 			</view>
 			<view class="teamsons">
 				<view>
 					成员列表
 				</view>
-				<view>
+				<view @click="toteamers(userinfo.TeamId)">
 					点击查看
 				</view>
 				
@@ -70,6 +71,12 @@
 				this.$api.myteams({},ret=>{
 					this.userinfo = ret.data.data[0]
 					console.log(this.userinfo);
+				})
+			},
+			toteamers(teamid){
+				console.log(teamid);
+				uni.navigateTo({
+					url:"./teamers/teamers?teamid="+encodeURIComponent(JSON.stringify(teamid)),
 				})
 			}
 		}
