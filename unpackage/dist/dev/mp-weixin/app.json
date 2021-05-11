@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/tabbar/tabbar-5/myinfo/myinfo",
     "pages/tabbar/tabbar-1/tabbar-1",
+    "pages/tabbar/tabbar-5/myinfo/myinfo",
     "pages/tabbar/tabbar-2/tabbar-2",
     "pages/tabbar/tabbar-3/tabbar-3",
     "pages/tabbar/tabbar-4/tabbar-4",
@@ -15,7 +15,9 @@
     "pages/tabbar/tabbar-5/mycourt/mycourt",
     "pages/tabbar/tabbar-5/teamlist/teamlist",
     "pages/tabbar/tabbar-5/myteam/teamers/teamers",
-    "pages/tabbar/tabbar-5/cteam/cteam"
+    "pages/tabbar/tabbar-5/cteam/cteam",
+    "pages/tabbar/tabbar-5/myteam/req/req",
+    "pages/tabbar/tabbar-5/teamlist/reqin/reqin"
   ],
   "subPackages": [],
   "window": {
@@ -37,22 +39,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/tabbar/tabbar-2/tabbar-2",
-        "iconPath": "static/img/tabbar/guanzhu.png",
-        "selectedIconPath": "static/img/tabbar/guanzhuactive.png",
-        "text": "关注"
-      },
-      {
         "pagePath": "pages/tabbar/tabbar-3/tabbar-3",
         "iconPath": "static/img/tabbar/add.png",
         "selectedIconPath": "static/img/tabbar/addactive.png",
         "text": "发布"
-      },
-      {
-        "pagePath": "pages/tabbar/tabbar-4/tabbar-4",
-        "iconPath": "static/img/tabbar/news.png",
-        "selectedIconPath": "static/img/tabbar/newsactive.png",
-        "text": "消息"
       },
       {
         "pagePath": "pages/tabbar/tabbar-5/tabbar-5",

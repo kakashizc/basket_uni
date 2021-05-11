@@ -11,12 +11,17 @@ export const vids = (data,callback) => urlPost(apiBaseUrl + 'v2/vid', data,callb
 export const sendDm = (data,callback) => urlPost(apiBaseUrl + 'v2/danm', data,callback);
 export const auth = (data,callback) => urlPost(apiBaseUrl + 'v2/wauth', data,callback);
 export const upv = (data,callback) => urlPost(apiBaseUrl + 'v3/upvideo', data,callback);
-export const sumb = (data,callback) => urlPostToken(apiBaseUrl + 'v3/sumb', data,callback);
 export const myvideos = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myvideos', data,callback);
+export const allteams = (data,callback) => urlPostToken(apiBaseUrl + 'v3/allteams', data,callback);//全部队伍列表
 export const myteams = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myteams', data,callback);//我的队伍
+export const cteam = (data,callback) => urlPostToken(apiBaseUrl + 'v3/cteam', data,callback);//创建我的球队
 export const myteamers = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myteamers', data,callback);//队伍下的所有队员信息
-export const myinfo= (data,callback) => urlPostToken(apiBaseUrl + 'v3/myinfo', data,callback);//队伍下的所有队员信息
-export const emyinfo= (data,callback) => urlPostToken(apiBaseUrl + 'v3/emyinfo', data,callback);//队伍下的所有队员信息
+export const myinfo= (data,callback) => urlPostToken(apiBaseUrl + 'v3/myinfo', data,callback);//我的个人信息
+export const emyinfo= (data,callback) => urlPostToken(apiBaseUrl + 'v3/emyinfo', data,callback);//编辑我的个人信息
+
+export const reqin= (data,callback) => urlPostToken(apiBaseUrl + 'v3/reqin', data,callback);//申请加入队伍
+export const checkreq= (data,callback) => urlPostToken(apiBaseUrl + 'v3/checkreq', data,callback);//审核申请
+export const reqlist= (data,callback) => urlPostToken(apiBaseUrl + 'v3/reqlist', data,callback);//审核申请
 
 
 

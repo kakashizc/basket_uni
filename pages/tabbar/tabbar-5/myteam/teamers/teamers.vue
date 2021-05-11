@@ -1,7 +1,9 @@
 <template>
 	<view class="content">
-		
-			<view v-for="u in userinfo" >
+			<view v-if="isnull == 0">
+				<view>无数据</view>
+			</view>
+			<view  v-else v-for="u in userinfo" >
 				<view class="myinfo">
 					<view >
 						<image class="userinfo-avatar" :src="u.Image" mode=""></image>
@@ -10,9 +12,7 @@
 						{{u.Name}}
 					</view>
 				</view>
-				
 			</view>
-		
 	</view>
 </template>
 
@@ -22,6 +22,7 @@
 			return {
 				userinfo:[],
 				teamid:0,
+				isnull:1,
 			}
 		},
 		onLoad(option) {
@@ -31,9 +32,13 @@
 		methods: {
 			initdata(){
 				this.$api.myteamers({"teamid":this.teamid},ret=>{
-					console.log(ret);
-					this.userinfo = ret.data
-					console.log(this.userinfo);
+					
+					if(ret.code == 0){
+						this.userinfo = ret.data
+					}else{
+						this.isnull = 0
+					}
+
 				})
 			},
 		}

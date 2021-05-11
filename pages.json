@@ -2,15 +2,7 @@
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		
-		{
-		    "path" : "pages/tabbar/tabbar-5/myinfo/myinfo",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false
-		    }
-		    
-		},
+		
 		
 		{
 			"path": "pages/tabbar/tabbar-1/tabbar-1",
@@ -19,6 +11,15 @@
 				"navigationBarBackgroundColor": "#00BFFF",
 				"navigationBarTextStyle":"white"
 			}
+		},
+		{
+		    "path" : "pages/tabbar/tabbar-5/myinfo/myinfo",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
 		},
 		{
 			"path": "pages/tabbar/tabbar-2/tabbar-2",
@@ -110,6 +111,24 @@
             }
             
         }
+        ,{
+            "path" : "pages/tabbar/tabbar-5/myteam/req/req",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/tabbar/tabbar-5/teamlist/reqin/reqin",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -130,12 +149,12 @@
 				"selectedIconPath": "static/img/tabbar/homeactive.png",
 				"text": "首页"
 			},
-			{
-				"pagePath": "pages/tabbar/tabbar-2/tabbar-2",
-				"iconPath": "static/img/tabbar/guanzhu.png",
-				"selectedIconPath": "static/img/tabbar/guanzhuactive.png",
-				"text": "关注"
-			},
+			// {
+			// 	"pagePath": "pages/tabbar/tabbar-2/tabbar-2",
+			// 	"iconPath": "static/img/tabbar/guanzhu.png",
+			// 	"selectedIconPath": "static/img/tabbar/guanzhuactive.png",
+			// 	"text": "关注"
+			// },
 			//#ifdef MP-WEIXIN
 			{
 				"pagePath": "pages/tabbar/tabbar-3/tabbar-3",
@@ -151,12 +170,12 @@
 				"selectedIconPath": "static/img/tabbar/addactive.png"
 			},
 			//#endif
-			{
-				"pagePath": "pages/tabbar/tabbar-4/tabbar-4",
-				"iconPath": "static/img/tabbar/news.png",
-				"selectedIconPath": "static/img/tabbar/newsactive.png",
-				"text": "消息"
-			},
+			// {
+			// 	"pagePath": "pages/tabbar/tabbar-4/tabbar-4",
+			// 	"iconPath": "static/img/tabbar/news.png",
+			// 	"selectedIconPath": "static/img/tabbar/newsactive.png",
+			// 	"text": "消息"
+			// },
 			{
 				"pagePath": "pages/tabbar/tabbar-5/tabbar-5",
 				"iconPath": "static/img/tabbar/me.png",

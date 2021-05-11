@@ -14,17 +14,14 @@
 			<view>
 				<button @click="MyTeam()" class="vids" > -我的球队- </button>
 			</view>
-			<view>
+			<!--<view>
 				<button @click="MyCourt()" class="vids" > -我的球场- </button>
-			</view>
+			</view> -->
 			<view>
 				<button @click="TeamList()" class="vids" > -球队一览- </button>
 			</view>
 			<view>
 				<button @click="MyInfo()" class="vids" > -我的信息- </button>
-			</view>
-			<view>
-				<button @click="Cteam()" class="vids" > -创建队伍- </button>
 			</view>
 		</view>
 	</view>

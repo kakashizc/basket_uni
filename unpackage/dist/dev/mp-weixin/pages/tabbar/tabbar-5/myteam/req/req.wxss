@@ -1,0 +1,41 @@
+
+.teamsons {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	padding: 5%;
+	-webkit-border-radius: 15rpx;
+	        border-radius: 15rpx;
+	background-color: #00BFFF;
+	line-height: 1.5;
+}
+.team {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+}
+.userinfo-avatar {
+	overflow: hidden;
+	width: 128rpx;
+	height: 128rpx;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
+}
+

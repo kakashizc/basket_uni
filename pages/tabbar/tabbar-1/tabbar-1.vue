@@ -13,12 +13,12 @@
 				</view>
 			</scroll-view> -->
 
-		<view class="cat">
+		<!-- <view class="cat">
 			<view v-for="it in cat.data">
 				<image :src="it.Image"></image>
 				<view class="active-tabbar vit">{{it.Name}}</view>
 			</view>
-		</view>
+		</view> -->
 
 		<view class="vid">
 			<view v-for="v in vid.data" class="videos">
@@ -57,7 +57,7 @@
 				src: '',
 				danmuValue: '',
 				page:1,
-				num:2
+				num:5
 			}
 		},
 		onLoad() {
@@ -69,7 +69,6 @@
 				"page": this.page,
 				"num": this.num
 			}, res => {
-				console.log(res.data);
 				if(res.data.length == 0){
 					uni.showToast({
 						title:"已经到底啦!",
@@ -99,7 +98,7 @@
 				})
 				this.$api.vids({
 					"page": this.page,
-					"num": this.page
+					"num": this.num
 				}, res => {
 					this.vid = res
 					res.data.forEach((item, key) => {

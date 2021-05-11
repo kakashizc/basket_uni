@@ -822,7 +822,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7323,7 +7323,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7344,14 +7344,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7437,7 +7437,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"basket_sel","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8025,7 +8025,7 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.emyinfo = exports.myinfo = exports.myteamers = exports.myteams = exports.myvideos = exports.sumb = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.reqlist = exports.checkreq = exports.reqin = exports.emyinfo = exports.myinfo = exports.myteamers = exports.cteam = exports.myteams = exports.allteams = exports.myvideos = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
 
 
 var methodsToken = [
@@ -8038,13 +8038,18 @@ var vids = function vids(data, callback) {return urlPost(_config.apiBaseUrl + 'v
 var sendDm = function sendDm(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/danm', data, callback);};exports.sendDm = sendDm;
 var auth = function auth(data, callback) {return urlPost(_config.apiBaseUrl + 'v2/wauth', data, callback);};exports.auth = auth;
 var upv = function upv(data, callback) {return urlPost(_config.apiBaseUrl + 'v3/upvideo', data, callback);};exports.upv = upv;
-var sumb = function sumb(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/sumb', data, callback);};exports.sumb = sumb;
 var myvideos = function myvideos(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myvideos', data, callback);};exports.myvideos = myvideos;
-var myteams = function myteams(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myteams', data, callback);}; //我的队伍
-exports.myteams = myteams;var myteamers = function myteamers(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myteamers', data, callback);}; //队伍下的所有队员信息
-exports.myteamers = myteamers;var myinfo = function myinfo(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myinfo', data, callback);}; //队伍下的所有队员信息
-exports.myinfo = myinfo;var emyinfo = function emyinfo(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/emyinfo', data, callback);}; //队伍下的所有队员信息
+var allteams = function allteams(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/allteams', data, callback);}; //全部队伍列表
+exports.allteams = allteams;var myteams = function myteams(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myteams', data, callback);}; //我的队伍
+exports.myteams = myteams;var cteam = function cteam(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/cteam', data, callback);}; //创建我的球队
+exports.cteam = cteam;var myteamers = function myteamers(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myteamers', data, callback);}; //队伍下的所有队员信息
+exports.myteamers = myteamers;var myinfo = function myinfo(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/myinfo', data, callback);}; //我的个人信息
+exports.myinfo = myinfo;var emyinfo = function emyinfo(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/emyinfo', data, callback);}; //编辑我的个人信息
 exports.emyinfo = emyinfo;
+var reqin = function reqin(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/reqin', data, callback);}; //申请加入队伍
+exports.reqin = reqin;var checkreq = function checkreq(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/checkreq', data, callback);}; //审核申请
+exports.checkreq = checkreq;var reqlist = function reqlist(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/reqlist', data, callback);}; //审核申请
+exports.reqlist = reqlist;
 
 
 var urlGet = function urlGet(url, data, callback) {

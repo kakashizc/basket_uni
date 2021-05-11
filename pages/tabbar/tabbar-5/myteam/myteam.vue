@@ -14,11 +14,18 @@
 				简介: {{userinfo.Intro}}
 			</view>
 		</view>
-		
-		<view class="team">
+		<view v-if="isshow == 0">
+			<view style="text-align: center;margin-top: 10rpx;" @click="cmyteam">
+				<button style="color:#DD524D"> 创建我的球队 </button>
+			</view>
+			<view style="text-align: center;margin-top: 10rpx; ">
+				<button style="color:#F0AD4E"> 寻找加入球队 </button>
+			</view>
+		</view>
+		<view  v-else class="team">
 			<view class="teamsons">
 				<view>
-					队伍名称: 
+					队伍名称:
 				</view>
 				<view>
 					{{userinfo.Team.Name}}
@@ -43,14 +50,20 @@
 			</view>
 			<view class="teamsons">
 				<view>
-					成员列表
+					成员列表:
 				</view>
 				<view @click="toteamers(userinfo.TeamId)">
 					点击查看
 				</view>
-				
+			</view>
+			<view class="teamsons" v-if="isteacher == 1" @click="cmyteam" style="color: #F0AD4E;">
+				编辑队伍信息
+			</view>
+			<view class="teamsons" v-if="isteacher == 1"  @click="reqlist(userinfo.TeamId)" style="color: #F0AD4E;">
+				申请加入列表
 			</view>
 		</view>
+		
 		
 	</view>
 </template>
@@ -60,6 +73,8 @@
 		data() {
 			return {
 				userinfo:{},
+				isshow:1,
+				isteacher:0,
 			}
 		},
 
@@ -69,14 +84,34 @@
 		methods: {
 			myteam(){
 				this.$api.myteams({},ret=>{
-					this.userinfo = ret.data.data[0]
-					console.log(this.userinfo);
+					console.log(ret.data.data[0].Team.ID);
+					if(ret.data.data[0].Team.ID != 0){
+						
+						this.userinfo = ret.data.data[0]
+					}else{
+						this.userinfo = ret.data.data[0]
+						this.isshow = 0
+					}
+					if(ret.data.data[0].Team.ID == ret.data.data[0].TeamId){
+						this.isteacher = 1
+					}
+					
 				})
 			},
 			toteamers(teamid){
 				console.log(teamid);
 				uni.navigateTo({
 					url:"./teamers/teamers?teamid="+encodeURIComponent(JSON.stringify(teamid)),
+				})
+			},
+			cmyteam(){
+				uni.navigateTo({
+					url:"../cteam/cteam"
+				})
+			},
+			reqlist(teamid){
+				uni.navigateTo({
+					url:"./req/req?teamid="+encodeURIComponent(JSON.stringify(teamid))
 				})
 			}
 		}
@@ -86,8 +121,10 @@
 <style>
 	.teamsons{
 		display: flex;
+		flex-direction: row;
 		justify-content: space-between;
 		padding: 2% 0% 3% 0%;
+		align-items: center;
 	}
 	.team{
 		display: flex;

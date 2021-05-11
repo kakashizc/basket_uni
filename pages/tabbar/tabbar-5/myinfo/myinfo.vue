@@ -55,6 +55,7 @@
 			return {
 				userinfo: {},
 				tx: "../../../../static/img/tabbar/homeactive.png",
+				returnImage:'',
 			}
 		},
 		onLoad() {
@@ -70,20 +71,14 @@
 			formSubmit(e) {
 				var formdata = e.detail.value
 				console.log(formdata);
-				if (this.returnImage != undefined) {
+				if (this.returnImage != '') {
 					e.detail.value.image = this.returnImage
-				} else {
-					uni.showModal({
-						title: "提交失败",
-						content: "请先上传视频"
-					})
-					return
 				}
 				this.$api.emyinfo({
 					"name": e.detail.value.name,
 					"intro": e.detail.value.intro,
 					"position": e.detail.value.position,
-					"image": e.detail.value.image,
+					"image": e.detail.value.image?e.detail.value.image:'',
 				},ret=>{
 					console.log(ret);
 				})

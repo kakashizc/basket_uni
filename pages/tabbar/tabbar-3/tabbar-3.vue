@@ -7,14 +7,18 @@
 					<image class="box-image" src="../../../static/img/release.png" mode="aspectFit"></image>
 					<text class="explain">发图文</text>
 				</view> -->
-				<view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-video/tabbar-3-video')">
+				
+				<view v-if="show == 1" class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-video/tabbar-3-video')">
 					<image class="box-image" src="../../../static/img/video.png" mode="aspectFit"></image>
 					<text class="explain">发视频</text>
 				</view>
-				<view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa')">
+				<view v-else  class="tabbar-box-item">
+					<text class="explain">发布成功</text>
+				</view>
+				<!-- <view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa')">
 					<image class="box-image" src="../../../static/img/qa.png" mode="aspectFit"></image>
 					<text class="explain">提问</text>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>
@@ -24,11 +28,23 @@
 export default {
 	data() {
 		return {
-			active: false
+			active: false,
+			show:1,
 		};
 	},
-	onLoad() {},
+	onLoad() {
+		
+	},
 	onShow() {
+		uni.request({
+			url:"http://edu.zhoujiasong.top/api/index/check",
+			success: (ret) => {
+				console.log(ret.data.code);
+				if(ret.data.code != 0){
+					this.show = 0
+				}
+			}
+		})
 		// setTimeout(() => {
 		this.active = true;
 		// }, 500);
