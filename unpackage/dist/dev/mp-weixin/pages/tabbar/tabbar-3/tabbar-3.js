@@ -169,11 +169,12 @@ var _default =
   },
   onShow: function onShow() {var _this = this;
     uni.request({
-      url: "http://edu.zhoujiasong.top/api/index/check",
+      url: "https://edu.zhoujiasong.top/api/index/check",
       success: function success(ret) {
         console.log(ret.data.code);
         if (ret.data.code != 0) {
           _this.show = 0;
+          console.log("77777", _this.show);
         }
       } });
 

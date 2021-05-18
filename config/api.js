@@ -11,6 +11,7 @@ export const vids = (data,callback) => urlPost(apiBaseUrl + 'v2/vid', data,callb
 export const sendDm = (data,callback) => urlPost(apiBaseUrl + 'v2/danm', data,callback);
 export const auth = (data,callback) => urlPost(apiBaseUrl + 'v2/wauth', data,callback);
 export const upv = (data,callback) => urlPost(apiBaseUrl + 'v3/upvideo', data,callback);
+export const sumb = (data,callback) => urlPostToken(apiBaseUrl + 'v3/sumb', data,callback);
 export const myvideos = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myvideos', data,callback);
 export const allteams = (data,callback) => urlPostToken(apiBaseUrl + 'v3/allteams', data,callback);//全部队伍列表
 export const myteams = (data,callback) => urlPostToken(apiBaseUrl + 'v3/myteams', data,callback);//我的队伍

@@ -45,8 +45,7 @@
 	-webkit-justify-content: space-between;
 	        justify-content: space-between;
 	padding: 5%;
-	-webkit-border-radius: 15rpx;
-	        border-radius: 15rpx;
+	border-radius: 15rpx;
 	background-color:#00BFFF;
 	line-height: 1.5;
 }
@@ -68,7 +67,6 @@
   overflow: hidden;
   width: 128rpx;
   height: 128rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
 }
 

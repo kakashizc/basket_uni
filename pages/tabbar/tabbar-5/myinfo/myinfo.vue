@@ -93,7 +93,7 @@
 						self.tx = res.tempFilePaths[0]
 						self.userinfo.Image = res.tempFilePaths[0]
 						uni.uploadFile({
-							url: "http://edu.zhoujiasong.top:8080/v3/upvideo", //接口地址
+							url: "https://edu.zhoujiasong.top/router/v3/upvideo", //接口地址
 							filePath: res.tempFilePaths[0],
 							name: 'files',
 							header: {

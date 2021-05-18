@@ -228,13 +228,19 @@ var _default =
         count: 1,
         sourceType: ['camera', 'album'],
         success: function success(res) {
-          console.log("edu.zhoujiasong.top:8080/v3/upvideo");
           console.log("选择视频成功", res);
+          if (res.duration >= 30) {
+            uni.showModal({
+              title: "视频过长",
+              content: "请上传短于30秒的视频" });
+
+            return;
+          }
           self.showVideo = true;
           self.addVideo = false;
           self.src = res.tempFilePath;
           uni.uploadFile({
-            url: "http://edu.zhoujiasong.top:8080/v3/upvideo", //接口地址
+            url: "https://edu.zhoujiasong.top/router/v3/upvideo", //接口地址
             filePath: res.tempFilePath,
             name: 'files',
             // formData: {

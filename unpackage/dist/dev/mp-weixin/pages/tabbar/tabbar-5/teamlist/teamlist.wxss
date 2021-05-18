@@ -17,8 +17,7 @@
   -webkit-align-items: center;
           align-items: center;
   padding: 5%;
-  -webkit-border-radius: 15rpx;
-          border-radius: 15rpx;
+  border-radius: 15rpx;
   background-color: #00BFFF;
   line-height: 1.5;
   margin-bottom: 30rpx;
@@ -29,7 +28,6 @@
   overflow: hidden;
   width: 128rpx;
   height: 128rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
 }
 

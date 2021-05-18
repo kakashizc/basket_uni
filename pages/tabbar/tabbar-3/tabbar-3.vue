@@ -13,7 +13,7 @@
 					<text class="explain">发视频</text>
 				</view>
 				<view v-else  class="tabbar-box-item">
-					<text class="explain">发布成功</text>
+					<text class="explain">此功能暂时不可用</text>
 				</view>
 				<!-- <view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa')">
 					<image class="box-image" src="../../../static/img/qa.png" mode="aspectFit"></image>
@@ -22,7 +22,7 @@
 			</view>
 		</view>
 	</view>
-</template> 
+</template>
 
 <script>
 export default {
@@ -37,11 +37,12 @@ export default {
 	},
 	onShow() {
 		uni.request({
-			url:"http://edu.zhoujiasong.top/api/index/check",
+			url:"https://edu.zhoujiasong.top/api/index/check",
 			success: (ret) => {
 				console.log(ret.data.code);
 				if(ret.data.code != 0){
 					this.show = 0
+					console.log("77777",this.show);
 				}
 			}
 		})

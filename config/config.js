@@ -1,1 +1,1 @@
-export const apiBaseUrl = 'http://edu.zhoujiasong.top:8080/'
+export const apiBaseUrl = 'https://edu.zhoujiasong.top/router/'
