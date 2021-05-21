@@ -148,6 +148,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -167,11 +171,16 @@ var _default =
 
         if (ret.code == 0) {
           _this.userinfo = ret.data;
+          console.log(_this.userinfo);
         } else {
           _this.isnull = 0;
         }
 
       });
+    },
+    stare: function stare(uid) {
+      console.log(uid);
+
     } } };exports.default = _default;
 
 /***/ }),

@@ -20,7 +20,7 @@
 			</view>
 		</view> -->
 
-		<view class="vid">
+		<view v-if="show == 1" class="vid">
 			<view v-for="v in vid.data" class="videos">
 				<view>{{v.Title}} </view>
 				<video :id="'abc'+v.ID" :data-ss="v.ID" :src="v.Address" controls="true"
@@ -42,6 +42,9 @@
 			<!-- wx52a8b1ff0844198a
 				 1fd89b44c3c553da50bfd968262340e5 -->
 		</view>
+		<view v-else style="text-align: center;">
+			<view >欢迎来到我的篮球个人用小程序</view>
+		</view>
 
 	</view>
 </template>
@@ -57,12 +60,29 @@
 				src: '',
 				danmuValue: '',
 				page:1,
-				num:5
+				num:5,
+				show:1,
 			}
 		},
 		onLoad() {
 			this.indexData()
+			uni.request({
+				url:"https://edu.zhoujiasong.top/api/index/check",
+				success: (ret) => {
+					console.log(ret.data.code);
+					if(ret.data.code != 0){
+						this.show = 0
+					}
+				}
+			}),
+			uni.showShareMenu({
+				title:"运动!健康!",
+				content:"一起来打球吧",
+				
+			})
+			
 		},
+		
 		onReachBottom(){// 划到最底
 			this.page++
 			this.$api.vids({

@@ -239,7 +239,11 @@ var _default =
           self.showVideo = true;
           self.addVideo = false;
           self.src = res.tempFilePath;
+          uni.showLoading({
+            title: '加载中' });
+
           uni.uploadFile({
+
             url: "https://edu.zhoujiasong.top/router/v3/upvideo", //接口地址
             filePath: res.tempFilePath,
             name: 'files',
@@ -250,6 +254,7 @@ var _default =
               Authorization: uni.getStorageSync('token') },
 
             success: function success(uploadFileRes) {
+              uni.hideLoading();
               console.log('1张', uploadFileRes);
               var bold = JSON.parse(uploadFileRes.data);
               console.log(bold);
@@ -265,6 +270,9 @@ var _default =
                 title: "ok",
                 content: bold.msg });
 
+            },
+            complete: function complete() {
+              uni.hideLoading();
             } });
 
         } });

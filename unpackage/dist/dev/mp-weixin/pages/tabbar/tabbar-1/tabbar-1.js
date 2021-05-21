@@ -185,6 +185,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -196,13 +199,30 @@ var _default =
       src: '',
       danmuValue: '',
       page: 1,
-      num: 5 };
+      num: 5,
+      show: 1 };
 
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad() {var _this = this;
     this.indexData();
+    uni.request({
+      url: "https://edu.zhoujiasong.top/api/index/check",
+      success: function success(ret) {
+        console.log(ret.data.code);
+        if (ret.data.code != 0) {
+          _this.show = 0;
+        }
+      } }),
+
+    uni.showShareMenu({
+      title: "运动!健康!",
+      content: "一起来打球吧" });
+
+
+
   },
-  onReachBottom: function onReachBottom() {var _this = this; // 划到最底
+
+  onReachBottom: function onReachBottom() {var _this2 = this; // 划到最底
     this.page++;
     this.$api.vids({
       "page": this.page,
@@ -214,10 +234,10 @@ var _default =
           duration: 2000 });
 
       }
-      _this.vid.data = _this.vid.data.concat(res.data); //合并数组
-      _this.vid.data.forEach(function (item, key) {
+      _this2.vid.data = _this2.vid.data.concat(res.data); //合并数组
+      _this2.vid.data.forEach(function (item, key) {
         //弹幕时间
-        _this.curtime[item.ID] = key;
+        _this2.curtime[item.ID] = key;
         item.Comments.forEach(function (v, k) {
           v['text'] = v.Says; //弹幕内容
           v['time'] = v.Second; //弹幕出现的秒数
@@ -226,29 +246,29 @@ var _default =
     });
   },
   methods: {
-    indexData: function indexData() {var _this2 = this;
+    indexData: function indexData() {var _this3 = this;
       this.$api.banners({}, function (res) {
-        _this2.db = res;
+        _this3.db = res;
       });
       this.$api.cats({
         "shows": "1" },
       function (res) {
-        _this2.cat = res;
+        _this3.cat = res;
       });
       this.$api.vids({
         "page": this.page,
         "num": this.num },
       function (res) {
-        _this2.vid = res;
+        _this3.vid = res;
         res.data.forEach(function (item, key) {
           //弹幕时间
-          _this2.curtime[item.ID] = key;
+          _this3.curtime[item.ID] = key;
           item.Comments.forEach(function (v, k) {
             v['text'] = v.Says; //弹幕内容
             v['time'] = v.Second; //弹幕出现的秒数
           });
         });
-        console.log(_this2.curtime);
+        console.log(_this3.curtime);
       });
     },
 

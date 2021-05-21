@@ -159,16 +159,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       userinfo: {
-        name: "请先授权" } };
+        name: "请先授权" },
 
+      show: 1 };
 
   },
-  onShow: function onShow() {
+  onShow: function onShow() {var _this = this;
     var token = uni.getStorageSync("token");
     if (!token) {
       uni.navigateTo({
@@ -179,6 +185,16 @@ var _default =
       this.userinfo = uni.getStorageSync("userinfo");
       console.log(this.userinfo);
     }
+    uni.request({
+      url: "https://edu.zhoujiasong.top/api/index/check",
+      success: function success(ret) {
+        console.log(ret.data.code);
+        if (ret.data.code != 0) {
+          _this.show = 0;
+          console.log("77777", _this.show);
+        }
+      } });
+
   },
   methods: {
     MyVideo: function MyVideo() {
@@ -230,6 +246,16 @@ var _default =
     Cteam: function Cteam() {
       uni.navigateTo({
         url: "./cteam/cteam" });
+
+    },
+    MyStare: function MyStare() {
+      uni.navigateTo({
+        url: "./stare/stare" });
+
+    },
+    MyFans: function MyFans() {
+      uni.navigateTo({
+        url: "./fans/fans" });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

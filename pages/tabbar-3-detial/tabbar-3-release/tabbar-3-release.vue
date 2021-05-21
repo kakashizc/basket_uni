@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		页面 - 发图文
+		页面
 	</view>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		开发中...
+		后期开发...
 	</view>
 </template>
 

@@ -17,7 +17,9 @@
     "pages/tabbar/tabbar-5/myteam/teamers/teamers",
     "pages/tabbar/tabbar-5/cteam/cteam",
     "pages/tabbar/tabbar-5/myteam/req/req",
-    "pages/tabbar/tabbar-5/teamlist/reqin/reqin"
+    "pages/tabbar/tabbar-5/teamlist/reqin/reqin",
+    "pages/tabbar/tabbar-5/stare/stare",
+    "pages/tabbar/tabbar-5/fans/fans"
   ],
   "subPackages": [],
   "window": {
@@ -42,7 +44,7 @@
         "pagePath": "pages/tabbar/tabbar-3/tabbar-3",
         "iconPath": "static/img/tabbar/add.png",
         "selectedIconPath": "static/img/tabbar/addactive.png",
-        "text": "发布"
+        "text": "TIME"
       },
       {
         "pagePath": "pages/tabbar/tabbar-5/tabbar-5",
@@ -52,6 +54,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap75.json"
+  "usingComponents": {}
 }

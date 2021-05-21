@@ -13,7 +13,7 @@
 					<text class="explain">发视频</text>
 				</view>
 				<view v-else  class="tabbar-box-item">
-					<text class="explain">此功能暂时不可用</text>
+					<text class="explain">篮球可以健身!</text>
 				</view>
 				<!-- <view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa')">
 					<image class="box-image" src="../../../static/img/qa.png" mode="aspectFit"></image>

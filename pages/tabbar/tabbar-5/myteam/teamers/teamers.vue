@@ -11,8 +11,12 @@
 					<view>
 						{{u.Name}}
 					</view>
+					<view style="color: #333333;" @click="stare(u.UserId)">
+						点击关注
+					</view>
 				</view>
 			</view>
+			
 	</view>
 </template>
 
@@ -35,12 +39,17 @@
 					
 					if(ret.code == 0){
 						this.userinfo = ret.data
+						console.log(this.userinfo);
 					}else{
 						this.isnull = 0
 					}
 
 				})
 			},
+			stare(uid){
+				console.log(uid);
+				
+			}
 		}
 	}
 </script>
