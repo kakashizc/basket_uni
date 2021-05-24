@@ -271,7 +271,11 @@ var _default =
                 content: bold.msg });
 
             },
-            complete: function complete() {
+            fail: function fail(rets) {
+              console.log(rets);
+            },
+            complete: function complete(ret) {
+              console.log(ret);
               uni.hideLoading();
             } });
 

@@ -8097,7 +8097,7 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.reqlist = exports.checkreq = exports.reqin = exports.emyinfo = exports.myinfo = exports.myteamers = exports.cteam = exports.myteams = exports.allteams = exports.myvideos = exports.sumb = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.uploadImage = exports.unstare = exports.stare = exports.reqlist = exports.checkreq = exports.reqin = exports.emyinfo = exports.myinfo = exports.myteamers = exports.cteam = exports.myteams = exports.allteams = exports.myvideos = exports.sumb = exports.upv = exports.auth = exports.sendDm = exports.vids = exports.cats = exports.banners = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
 
 
 var methodsToken = [
@@ -8123,8 +8123,9 @@ var reqin = function reqin(data, callback) {return urlPostToken(_config.apiBaseU
 exports.reqin = reqin;var checkreq = function checkreq(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/checkreq', data, callback);}; //审核申请
 exports.checkreq = checkreq;var reqlist = function reqlist(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/reqlist', data, callback);}; //审核申请
 exports.reqlist = reqlist;
-
-
+var stare = function stare(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/stare', data, callback);}; //关注某人
+exports.stare = stare;var unstare = function unstare(data, callback) {return urlPostToken(_config.apiBaseUrl + 'v3/unstare', data, callback);}; //取关某人
+exports.unstare = unstare;
 var urlGet = function urlGet(url, data, callback) {
   uni.showLoading({
     title: '加载中' });

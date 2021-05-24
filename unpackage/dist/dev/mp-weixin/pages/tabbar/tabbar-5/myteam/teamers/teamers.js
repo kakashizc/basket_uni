@@ -152,6 +152,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -178,9 +181,18 @@ var _default =
 
       });
     },
-    stare: function stare(uid) {
+    stare: function stare(uid) {var _this2 = this;
       console.log(uid);
+      this.$api.stare({
+        id: uid },
+      function (ret) {
+        console.log(_this2);
+        wx.showModal({
+          title: "ok",
+          content: ret.msg });
 
+
+      });
     } } };exports.default = _default;
 
 /***/ }),

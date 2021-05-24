@@ -139,7 +139,11 @@
 									content: bold.msg
 								})
 							},
-							complete() {
+							fail:function(rets){
+								console.log(rets);
+							},
+							complete(ret) {
+								console.log(ret);
 								uni.hideLoading();
 							}
 						});

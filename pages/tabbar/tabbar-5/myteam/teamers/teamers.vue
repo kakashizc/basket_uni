@@ -11,8 +11,11 @@
 					<view>
 						{{u.Name}}
 					</view>
-					<view style="color: #333333;" @click="stare(u.UserId)">
+					<view  v-if="u.Stare == 0" style="color: #333333;" @click="stare(u.UserId)" :class="u.UserId" >
 						点击关注
+					</view>
+					<view  v-else style="color: #333333;" @click="stare(u.UserId)"  :class="u.UserId" >
+						已关注
 					</view>
 				</view>
 			</view>
@@ -48,7 +51,16 @@
 			},
 			stare(uid){
 				console.log(uid);
-				
+				this.$api.stare({
+					id:uid
+				},ret=>{
+					console.log(this);
+					wx.showModal({
+						title: "ok",
+						content: ret.msg
+					})
+					
+				})
 			}
 		}
 	}

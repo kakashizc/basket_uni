@@ -24,7 +24,8 @@ export const reqin= (data,callback) => urlPostToken(apiBaseUrl + 'v3/reqin', dat
 export const checkreq= (data,callback) => urlPostToken(apiBaseUrl + 'v3/checkreq', data,callback);//审核申请
 export const reqlist= (data,callback) => urlPostToken(apiBaseUrl + 'v3/reqlist', data,callback);//审核申请
 
-
+export const stare= (data,callback) => urlPostToken(apiBaseUrl + 'v3/stare', data,callback);//关注某人
+export const unstare= (data,callback) => urlPostToken(apiBaseUrl + 'v3/unstare', data,callback);//取关某人
 
 const urlGet =  (url,data,callback) => {
 	uni.showLoading({
