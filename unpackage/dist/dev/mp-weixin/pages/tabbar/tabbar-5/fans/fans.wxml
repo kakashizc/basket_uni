@@ -1,1 +1,1 @@
-<view>fans</view>
+<view class="content"><block wx:if="{{isnull==0}}"><view><view>我的粉丝</view></view></block><block wx:else><block wx:for="{{userinfo}}" wx:for-item="u" wx:for-index="__i0__"><view><view data-event-opts="{{[['tap',[['req',['$0'],[[['userinfo','',__i0__,'UserId']]]]]]]}}" style="text-align:center;" bindtap="__e"><view style="color:#F0AD4E;">查看他的视频</view></view><view class="myinfo"><view><image class="userinfo-avatar" src="{{u.Teamers.Image}}" mode></image></view><view>{{''+u.Teamers.Name+''}}</view></view></view></block></block></view>

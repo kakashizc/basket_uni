@@ -1,25 +1,37 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
-		
-		
-		{
+	{
 			"path": "pages/tabbar/tabbar-1/tabbar-1",
 			"style": {
 				"navigationBarTitleText": "燕赵大地",
 				"navigationBarBackgroundColor": "#00BFFF",
-				"navigationBarTextStyle":"white"
+				"navigationBarTextStyle": "white"
 			}
 		},
+		
 		{
-		    "path" : "pages/tabbar/tabbar-5/myinfo/myinfo",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false
-		    }
-		    
+			"path": "pages/tabbar/tabbar-5/tabbar-5",
+			"style": {}
+		},
+		{
+			"path": "pages/tabbar/tabbar-5/stare/stare",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
+		},
+	
+	
+	
+		{
+			"path": "pages/tabbar/tabbar-5/myinfo/myinfo",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		},
 		{
 			"path": "pages/tabbar/tabbar-2/tabbar-2",
@@ -33,10 +45,7 @@
 			"path": "pages/tabbar/tabbar-4/tabbar-4",
 			"style": {}
 		},
-		{
-			"path": "pages/tabbar/tabbar-5/tabbar-5",
-			"style": {}
-		},
+		
 		{
 			"path": "pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release",
 			"style": {}
@@ -50,111 +59,99 @@
 			"style": {}
 		},
 		{
-            "path" : "pages/tabbar/tabbar-5/auth",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/myvideos/myvideos",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/myteam/myteam",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/mycourt/mycourt",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/teamlist/teamlist",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        },{
-            "path" : "pages/tabbar/tabbar-5/myteam/teamers/teamers",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        
-        ,{
-            "path" : "pages/tabbar/tabbar-5/cteam/cteam",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/myteam/req/req",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/teamlist/reqin/reqin",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/stare/stare",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tabbar/tabbar-5/fans/fans",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+			"path": "pages/tabbar/tabbar-5/auth",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/tabbar/tabbar-5/myvideos/myvideos",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/myteam/myteam",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/mycourt/mycourt",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/teamlist/teamlist",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/myteam/teamers/teamers",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+		, {
+			"path": "pages/tabbar/tabbar-5/cteam/cteam",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/myteam/req/req",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/teamlist/reqin/reqin",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},  {
+			"path": "pages/tabbar/tabbar-5/fans/fans",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/hervideo/hervideo",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/tabbar/tabbar-5/chats/chats",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "燕赵大地",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"navigationBarBackgroundColor": "#00BFFF",
-		"navigationBarTextStyle":"white"
+		"navigationBarTextStyle": "white"
 	},
 	"tabBar": {
 		"borderStyle": "black",

@@ -140,7 +140,7 @@
 					text: this.danmuValue,
 					color: "#FFF",
 				});
-				//1,获取当前播放的描述
+				//1,获取当前播放的秒数
 				let second = this.curtime[oid]
 				console.log(second)
 				//2,数据发送给后台

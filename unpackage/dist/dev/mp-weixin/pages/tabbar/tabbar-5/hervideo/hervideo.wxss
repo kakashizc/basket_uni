@@ -1,0 +1,23 @@
+
+.videos{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack:justify;
+	-webkit-justify-content:space-between;
+	        justify-content:space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	-webkit-flex-direction:column ;
+	        flex-direction:column ;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	text-align: center;
+}
+.videos{
+	padding-bottom: 20rpx;
+}
+

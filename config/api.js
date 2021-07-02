@@ -27,6 +27,14 @@ export const reqlist= (data,callback) => urlPostToken(apiBaseUrl + 'v3/reqlist',
 export const stare= (data,callback) => urlPostToken(apiBaseUrl + 'v3/stare', data,callback);//关注某人
 export const unstare= (data,callback) => urlPostToken(apiBaseUrl + 'v3/unstare', data,callback);//取关某人
 
+export const myfans= (data,callback) => urlPostToken(apiBaseUrl + 'v3/myfans', data,callback);//我的粉丝
+export const mystares= (data,callback) => urlPostToken(apiBaseUrl + 'v3/mystares', data,callback);//我关注的人
+export const hervideos= (data,callback) => urlPostToken(apiBaseUrl + 'v3/hervideos', data,callback);//某个人发布的视频
+export const getOpenid= (data,callback) => urlPostToken(apiBaseUrl + 'v3/getopenid', data,callback);//根据token获取openid
+export const getOpenidOne= (data,callback) => urlPostToken(apiBaseUrl + 'v3/getopenidone', data,callback);//根据token获取openid (仅我的)
+
+export const getUserid= (data,callback) => urlPostToken(apiBaseUrl + 'v3/getUserid', data,callback);//根据openid获取uid
+
 const urlGet =  (url,data,callback) => {
 	uni.showLoading({
 		title: '加载中'

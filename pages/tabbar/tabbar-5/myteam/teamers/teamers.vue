@@ -3,7 +3,7 @@
 			<view v-if="isnull == 0">
 				<view>无数据</view>
 			</view>
-			<view  v-else v-for="u in userinfo" >
+			<view  v-else v-for="(u,index) in userinfo" >
 				<view class="myinfo">
 					<view >
 						<image class="userinfo-avatar" :src="u.Image" mode=""></image>
@@ -11,12 +11,10 @@
 					<view>
 						{{u.Name}}
 					</view>
-					<view  v-if="u.Stare == 0" style="color: #333333;" @click="stare(u.UserId)" :class="u.UserId" >
-						点击关注
+					<view @click="stare(u.UserId,index)" style="color: #333333;" :class="u.UserId">
+						{{u.Stare == 0?'点击关注':'已关注'}}
 					</view>
-					<view  v-else style="color: #333333;" @click="stare(u.UserId)"  :class="u.UserId" >
-						已关注
-					</view>
+					
 				</view>
 			</view>
 			
@@ -49,8 +47,8 @@
 
 				})
 			},
-			stare(uid){
-				console.log(uid);
+			stare(uid,index){
+				console.log(index);
 				this.$api.stare({
 					id:uid
 				},ret=>{
@@ -59,6 +57,7 @@
 						title: "ok",
 						content: ret.msg
 					})
+					this.userinfo[index].Stare = 1 //实时修改 文字显示
 					
 				})
 			}

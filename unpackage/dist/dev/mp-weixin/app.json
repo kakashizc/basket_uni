@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/tabbar/tabbar-1/tabbar-1",
+    "pages/tabbar/tabbar-5/tabbar-5",
+    "pages/tabbar/tabbar-5/stare/stare",
     "pages/tabbar/tabbar-5/myinfo/myinfo",
     "pages/tabbar/tabbar-2/tabbar-2",
     "pages/tabbar/tabbar-3/tabbar-3",
     "pages/tabbar/tabbar-4/tabbar-4",
-    "pages/tabbar/tabbar-5/tabbar-5",
     "pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release",
     "pages/tabbar-3-detial/tabbar-3-video/tabbar-3-video",
     "pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa",
@@ -18,8 +19,9 @@
     "pages/tabbar/tabbar-5/cteam/cteam",
     "pages/tabbar/tabbar-5/myteam/req/req",
     "pages/tabbar/tabbar-5/teamlist/reqin/reqin",
-    "pages/tabbar/tabbar-5/stare/stare",
-    "pages/tabbar/tabbar-5/fans/fans"
+    "pages/tabbar/tabbar-5/fans/fans",
+    "pages/tabbar/tabbar-5/hervideo/hervideo",
+    "pages/tabbar/tabbar-5/chats/chats"
   ],
   "subPackages": [],
   "window": {

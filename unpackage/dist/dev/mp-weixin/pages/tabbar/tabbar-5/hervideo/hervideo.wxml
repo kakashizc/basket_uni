@@ -1,0 +1,1 @@
+<view class="vid"><block wx:for="{{vid.data}}" wx:for-item="v" wx:for-index="__i0__"><view class="videos"><view>{{v.Title+''}}</view><video id="{{'abc'+v.ID}}" data-ss="{{v.ID}}" src="{{v.Address}}" controls="true"></video></view></block></view>

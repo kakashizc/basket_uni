@@ -28,7 +28,7 @@
 				
 				uni.getUserProfile({
 					desc:'123',
-					success:(res)=>{
+					success:(res)=>{ 
 						console.log(res);
 						if(res.errMsg == "getUserProfile:ok"){//授权成功
 							//调用后台接口,发送code
